@@ -11,7 +11,7 @@ function StackRoutes() {
       <Stack.Screen 
         name="PasswordGenerator" 
         component={PasswordGenerator}        
-        options={{ title: 'Gerador de Senha' }} // Definindo o título da tela
+        options={{ title: 'Gerador de Senha' }} // título da tela
       />
       <Stack.Screen 
         name="SavedPasswordsScreen" 

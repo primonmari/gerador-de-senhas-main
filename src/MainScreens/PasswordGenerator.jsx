@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Modal } from 'react-native';
 import Slider from '@react-native-community/slider';
-import { useNavigation } from '@react-navigation/native'; // Importar o hook useNavigation
+import { useNavigation } from '@react-navigation/native'; 
 
 const PasswordGenerator = () => {
   const [senha, setSenha] = useState('');
   const [comprimentoSenha, setComprimentoSenha] = useState(8);
   const [mostrarPopup, setMostrarPopup] = useState(false);
-  const navigation = useNavigation(); // Inicializar o hook useNavigation
+  const navigation = useNavigation(); 
 
 
+  // Função para gerar uma senha aleatória
   const gerarSenha = () => {
-    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@-#  ';
+    // Define os caracteres que podem ser utilizados na senha
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@-#';
+    // Inicializa uma string para armazenar a nova senha
     let novaSenha = '';
+    // Loop para gerar cada caractere da senha
     for (let i = 0; i < comprimentoSenha; i++) {
-      const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
-      novaSenha += caracteres.charAt(indiceAleatorio);
+        // Gera um índice aleatório dentro do comprimento do conjunto de caracteres
+        const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+        // Adiciona o caractere correspondente ao índice aleatório à nova senha
+        novaSenha += caracteres.charAt(indiceAleatorio);
     }
+    // Define a nova senha gerada
     setSenha(novaSenha);
+    // Define que o modal de senha deve ser exibido
     setMostrarPopup(true);
   };
 

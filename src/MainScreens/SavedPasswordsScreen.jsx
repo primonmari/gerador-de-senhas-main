@@ -63,7 +63,7 @@ const togglePasswordVisibility = index => {
       >
         {/* Renderizar cada senha como um quadrado, para isso mapeia o estado da senha*/}
         {senhas.map((senha, index) => (
-          //rendereiza cada senha como um quadrado
+          //renderiza cada senha como um quadrado
           <View key={index} style={[styles.passwordContainer, senha.isVisible && styles.visibleContainer]}>
             <Text style={[styles.text, senha.isVisible && styles.whiteText]}>
               {senha.isVisible ? senha.password : '•'.repeat(senha.password.length)}

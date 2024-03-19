@@ -1,5 +1,3 @@
-//ARQUIVO PARA EXIBIR AS SENHAS APÓS SALVAR 
-
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -59,8 +57,9 @@ const togglePasswordVisibility = index => {
 
   return (  
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false} // Define esta propriedade como false
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={true} // Define esta propriedade como true para mostrar apenas a barra de rolagem
       >
         {/* Renderizar cada senha como um quadrado, para isso mapeia o estado da senha*/}
         {senhas.map((senha, index) => (
@@ -88,14 +87,13 @@ const togglePasswordVisibility = index => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     marginLeft: 10,
     marginRight: 10,
-    
   },
   scrollContent: {
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'transparent', // Definindo o fundo da ScrollView como transparente
   },
   passwordContainer: {
     flexDirection: 'row',
